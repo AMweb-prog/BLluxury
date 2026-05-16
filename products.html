@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" href="images/logo_clean.webp" as="image" type="image/webp">
+  <link rel="preload" href="style.css?v=4" as="style">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>BLluxury — Collection Royale Femme | Bijoux Luxe Kénitra</title>
+  <meta name="description" content="Découvrez la Collection Royale Femme BLluxury — Bijoux luxueux à Kénitra. Colliers, bracelets, bagues en or avec pierres rares. Livraison gratuite au Maroc.">
+  <meta name="keywords" content="collection bijoux luxe Kénitra, collier or Maroc, bracelet luxe Kénitra, bague or Maroc, van cleef Maroc, bijoux femme Kénitra">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="MA-KEN">
+  <meta name="geo.placename" content="Kénitra, Maroc">
+  <meta name="geo.position" content="34.261;-6.578">
+  <meta name="ICBM" content="34.261, -6.578">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blluxury.ma/products.html">
+  <meta property="og:title" content="Collection Royale Femme — BLluxury Kénitra">
+  <meta property="og:description" content="Bijoux luxueux à Kénitra. Livraison gratuite partout au Maroc en 24-72h.">
+  <meta property="og:image" content="images/logo_clean.webp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Collection BLluxury Kénitra">
+  <meta name="twitter:description" content="Bijoux luxueux handcraftés. Livraison gratuite au Maroc.">
+  <meta name="twitter:image" content="images/logo_clean.webp">
+
+  <link rel="canonical" href="https://blluxury.ma/products.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Collection Royale Femme — BLluxury",
+    "description": "Collection de bijoux luxueux à Kénitra, Maroc",
+    "url": "https://blluxury.ma/products.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://blluxury.ma/"},
+        {"@type": "ListItem", "position": 2, "name": "Collection", "item": "https://blluxury.ma/products.html"}
+      ]
+    },
+    "provider": {
+      "@type": "JewelryStore",
+      "name": "BLluxury",
+      "address": {"@type": "PostalAddress", "addressLocality": "Kénitra", "addressCountry": "MA"}
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="images/logo_clean.webp" type="image/webp" />
+</head>
+<body class="light-mode">
+
+  <div class="diamond-bg" id="diamondBg"><canvas id="diamondCanvas"></canvas></div>
+  <div class="gold-particles" id="goldParticles"></div>
+
+  <div class="custom-cursor" id="customCursor">
+    <svg viewBox="0 0 40 40" width="40" height="40">
+      <polygon points="20,2 35,20 20,38 5,20" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+      <polygon points="20,8 30,20 20,32 10,20" fill="rgba(212,175,55,0.3)" stroke="#D4AF37" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="dynamic-island"><div class="island-content"><span class="island-time" id="islandTime">--:--</span><div class="island-status"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div></div></div>
+
+  <div class="stock-alert" id="stockAlert">
+    <div class="stock-alert-content">
+      <i class="fa-solid fa-fire"></i>
+      <span data-lang-en="Limited Stock — Order within" data-lang-fr="Stock Limité — Commandez dans">Limited Stock — Order within</span>
+      <span class="countdown-timer" id="countdownTimer">23:59:59</span>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" title="Relaxing Music">
+    <i class="fa-solid fa-music"></i>
+    <span class="music-wave"></span>
+  </button>
+
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="images/logo_clean.webp" alt="BLluxury"></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link active">Products</a>
+        <a href="cart.html" class="nav-link cart-link"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cartBadge">0</span></a>
+        <div class="theme-toggle" id="themeToggle"><i class="fa-regular fa-sun"></i><i class="fa-regular fa-moon"></i></div>
+        <div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><span>|</span><button class="lang-btn" data-lang="fr">FR</button></div>
+      </nav>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="products-main">
+    <div class="products-header-modern">
+      <h1 data-lang-en="Royal Women Collection" data-lang-fr="Collection Royale Femme">Royal Women Collection</h1>
+      <p data-lang-en="Timeless elegance" data-lang-fr="Élégance intemporelle">Timeless elegance</p>
+    </div>
+    <div class="products-grid-modern" id="productsGrid"></div>
+  </main>
+
+  <div id="productModal" class="modal-modern hidden">
+    <div class="modal-glass">
+      <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-layout">
+        <div class="modal-media">
+          <div class="view-toggle">
+          
+          <div class="zoom-container" id="zoomContainer">
+            <img id="modalMainImg" src="" alt="Product">
+            <div class="zoom-lens" id="zoomLens"></div>
+          </div>
+              <div class="progress-bar"><div class="progress-fill"></div></div>
+            </div>
+          </div>
+          <div class="product-carousel" id="imageCarousel">
+            <button class="carousel-prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="carousel-track" id="carouselTrack"></div>
+            <button class="carousel-next"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="modal-info">
+          <h2 id="modalProductName"></h2>
+          <p class="modal-sub" id="modalProductSub"></p>
+          <div class="modal-price" id="modalProductPrice"></div>
+          <div class="share-buttons" id="shareButtons">
+            <button class="share-btn" data-platform="instagram"><i class="fa-brands fa-instagram"></i></button>
+            <button class="share-btn" data-platform="whatsapp"><i class="fa-brands fa-whatsapp"></i></button>
+          </div>
+          <button class="btn-primary-modal" id="modalAddToCartBtn">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span data-lang-en="Add to Cart" data-lang-fr="Ajouter au panier">Add to Cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <footer class="footer-modern">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo"><img src="images/logo_clean.webp" alt="BLluxury"></a><p class="footer-tagline">Bold and rare, beyond compare.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a><a href="#"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+      <div><h4 data-lang-en="Navigate" data-lang-fr="Navigation">Navigate</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="cart.html">Cart</a></div>
+      <div><h4>Contact</h4><a href="tel:+212656420994"><i class="fa-solid fa-phone"></i> +212 656420994</a><a href="https://wa.me/212656420994"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 BLluxury — All rights reserved.</p></div>
+  </footer>
+
+  <audio id="ambientMusic" loop preload="none">
+    <source src="audio/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

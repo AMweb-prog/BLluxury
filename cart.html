@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" href="images/logo_clean.webp" as="image" type="image/webp">
+  <link rel="preload" href="style.css?v=4" as="style">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>BLluxury — Panier | Commander vos Bijoux Luxe</title>
+  <meta name="description" content="Finalisez votre commande BLluxury. Livraison gratuite partout au Maroc en 24-72h. Paiement à la livraison disponible.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="geo.region" content="MA-KEN">
+  <meta name="geo.placename" content="Kénitra, Maroc">
+  <meta name="geo.position" content="34.261;-6.578">
+  <meta name="ICBM" content="34.261, -6.578">
+  <link rel="canonical" href="https://blluxury.ma/cart.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CheckoutPage",
+    "name": "Panier — BLluxury",
+    "url": "https://blluxury.ma/cart.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://blluxury.ma/"},
+        {"@type": "ListItem", "position": 2, "name": "Collection", "item": "https://blluxury.ma/products.html"},
+        {"@type": "ListItem", "position": 3, "name": "Panier", "item": "https://blluxury.ma/cart.html"}
+      ]
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="images/logo_clean.webp" type="image/webp" />
+</head>
+<body class="light-mode">
+
+  <div class="diamond-bg" id="diamondBg"><canvas id="diamondCanvas"></canvas></div>
+  <div class="gold-particles" id="goldParticles"></div>
+
+  <div class="custom-cursor" id="customCursor">
+    <svg viewBox="0 0 40 40" width="40" height="40">
+      <polygon points="20,2 35,20 20,38 5,20" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+      <polygon points="20,8 30,20 20,32 10,20" fill="rgba(212,175,55,0.3)" stroke="#D4AF37" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="dynamic-island"><div class="island-content"><span class="island-time" id="islandTime">--:--</span><div class="island-status"><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></div></div></div>
+
+  <div class="stock-alert" id="stockAlert">
+    <div class="stock-alert-content">
+      <i class="fa-solid fa-fire"></i>
+      <span data-lang-en="Limited Stock — Order within" data-lang-fr="Stock Limité — Commandez dans">Limited Stock — Order within</span>
+      <span class="countdown-timer" id="countdownTimer">23:59:59</span>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" title="Relaxing Music">
+    <i class="fa-solid fa-music"></i>
+    <span class="music-wave"></span>
+  </button>
+
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="images/logo_clean.webp" alt="BLluxury"></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="cart.html" class="nav-link active cart-link"><i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cartBadge">0</span></a>
+        <div class="theme-toggle" id="themeToggle"><i class="fa-regular fa-sun"></i><i class="fa-regular fa-moon"></i></div>
+        <div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><span>|</span><button class="lang-btn" data-lang="fr">FR</button></div>
+      </nav>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="cart-main">
+    <div class="cart-header">
+      <h1 data-lang-en="Your Cart" data-lang-fr="Votre Panier">Your Cart</h1>
+      <div class="cart-line"></div>
+    </div>
+    <div class="cart-grid">
+      <div class="cart-items" id="cartItemsList"></div>
+      <div class="cart-empty hidden" id="cartEmpty">
+        <i class="fa-regular fa-bag-shopping"></i>
+        <p data-lang-en="Your cart is empty" data-lang-fr="Votre panier est vide">Your cart is empty</p>
+        <a href="products.html" class="btn-glass-small" data-lang-en="Shop now" data-lang-fr="Acheter">Shop now</a>
+      </div>
+      <div class="cart-summary" id="cartSummary">
+        <div class="summary-row"><span data-lang-en="Subtotal" data-lang-fr="Sous-total">Subtotal</span><span id="cartSubtotal">MAD0</span></div>
+        <div class="summary-row"><span data-lang-en="Shipping" data-lang-fr="Livraison">Shipping</span><span data-lang-en="Free" data-lang-fr="Gratuit">Free</span></div>
+        <div class="summary-row total"><span data-lang-en="Total" data-lang-fr="Total">Total</span><span id="cartTotal">MAD0</span></div>
+      </div>
+      <div class="cart-form" id="cartForm">
+        <h3 data-lang-en="Delivery details" data-lang-fr="Détails de livraison">Delivery details</h3>
+        <input type="text" id="firstName" placeholder="First name" required>
+        <input type="text" id="lastName" placeholder="Last name" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="tel" id="phone" placeholder="Phone" required>
+        <button class="btn-whatsapp-cart" id="orderBtn"><i class="fa-brands fa-whatsapp"></i> <span data-lang-en="Order via WhatsApp" data-lang-fr="Commander via WhatsApp">Order via WhatsApp</span></button>
+      </div>
+    </div>
+  </main>
+
+  <button class="scroll-top" id="scrollTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <footer class="footer-modern">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo"><img src="images/logo_clean.webp" alt="BLluxury"></a><p class="footer-tagline">Bold and rare, beyond compare.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a><a href="#"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+      <div><h4 data-lang-en="Navigate" data-lang-fr="Navigation">Navigate</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="cart.html">Cart</a></div>
+      <div><h4>Contact</h4><a href="tel:+212656420994"><i class="fa-solid fa-phone"></i> +212 656420994</a><a href="https://wa.me/212656420994"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 BLluxury — All rights reserved.</p></div>
+  </footer>
+
+  <audio id="ambientMusic" loop preload="none">
+    <source src="audio/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Performance: preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.instagram.com">
+  <!-- Preload critical assets -->
+  <link rel="preload" href="images/logo_clean.webp" as="image" type="image/webp">
+  <link rel="preload" href="style.css?v=4" as="style">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>BLluxury Kénitra — Bijoux Luxe | Livraison Maroc</title>
+  <meta name="description" content="BLluxury Kénitra — Bijoux luxueux handcraftés, pierres rares. Livraison gratuite partout au Maroc en 24-72h. Commandez maintenant via WhatsApp.">
+  <meta name="keywords" content="bijoux luxe Kénitra, bijoux Maroc, bijoux or Kénitra, collier luxe, bracelet or, bague luxe Maroc, livraison Kénitra, BLluxury">
+  <meta name="author" content="BLluxury">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="fr-MA">
+  <meta name="geo.region" content="MA-KEN">
+  <meta name="geo.placename" content="Kénitra, Maroc">
+  <meta name="geo.position" content="34.261;-6.578">
+  <meta name="ICBM" content="34.261, -6.578">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blluxury.ma/">
+  <meta property="og:title" content="BLluxury Kénitra — Bijoux Luxe | Livraison Maroc">
+  <meta property="og:description" content="Bijoux luxueux handcraftés à Kénitra. Livraison gratuite partout au Maroc en 24-72h.">
+  <meta property="og:image" content="images/logo_clean.webp">
+  <meta property="og:locale" content="fr_MA">
+  <meta property="og:site_name" content="BLluxury">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BLluxury Kénitra — Bijoux Luxe">
+  <meta name="twitter:description" content="Bijoux luxueux handcraftés à Kénitra. Livraison gratuite partout au Maroc.">
+  <meta name="twitter:image" content="images/logo_clean.webp">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://blluxury.ma/">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "BLluxury",
+    "description": "Bijoux luxueux handcraftés avec des pierres rares. Livraison gratuite partout au Maroc.",
+    "url": "https://blluxury.ma",
+    "logo": "https://blluxury.ma/images/logo_clean.webp",
+    "image": "https://blluxury.ma/images/logo_clean.webp",
+    "telephone": "+212656420994",
+    "priceRange": "MAD",
+    "currenciesAccepted": "MAD",
+    "paymentAccepted": "Cash on delivery",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kénitra",
+      "addressRegion": "Rabat-Salé-Kénitra",
+      "addressCountry": "MA",
+      "postalCode": "14000"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.261,
+      "longitude": -6.578
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Maroc"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "22:00"
+    },
+    "sameAs": [
+      "https://www.instagram.com/b.l_luxury/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Collection Royale Femme",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Van Cleef Rose", "category": "Bijoux"}}
+      ]
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="images/logo_clean.webp" type="image/webp" />
+</head>
+<body class="light-mode">
+
+  <div class="diamond-bg" id="diamondBg">
+    <canvas id="diamondCanvas"></canvas>
+  </div>
+
+  <div class="gold-particles" id="goldParticles"></div>
+
+  <div class="custom-cursor" id="customCursor">
+    <svg viewBox="0 0 40 40" width="40" height="40">
+      <polygon points="20,2 35,20 20,38 5,20" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+      <polygon points="20,8 30,20 20,32 10,20" fill="rgba(212,175,55,0.3)" stroke="#D4AF37" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="dynamic-island">
+    <div class="island-content">
+      <span class="island-time" id="islandTime">--:--</span>
+      <div class="island-status">
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="stock-alert" id="stockAlert">
+    <div class="stock-alert-content">
+      <i class="fa-solid fa-fire"></i>
+      <span data-lang-en="Limited Stock — Order within" data-lang-fr="Stock Limité — Commandez dans">Limited Stock — Order within</span>
+      <span class="countdown-timer" id="countdownTimer">23:59:59</span>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" title="Ambient Music">
+    <i class="fa-solid fa-music"></i>
+    <span class="music-wave"></span>
+  </button>
+
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo liquid-logo" id="liquidLogo">
+        <img src="images/logo_clean.webp" alt="BLluxury">
+        <div class="liquid-overlay"></div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="cart.html" class="nav-link cart-link">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <div class="theme-toggle" id="themeToggle">
+          <i class="fa-regular fa-sun"></i>
+          <i class="fa-regular fa-moon"></i>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span>|</span>
+          <button class="lang-btn" data-lang="fr">FR</button>
+        </div>
+      </nav>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-modern">
+      <div class="hero-loading" id="heroLoading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">BLluxury</div>
+      </div>
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="images/herovid.mp4" type="video/mp4">
+      </video>
+      <div class="hero-glow"></div>
+      <div class="hero-content-modern">
+        <span class="hero-badge" data-lang-en="SINCE 2023" data-lang-fr="DEPUIS 2023">SINCE 2023</span>
+        <h1 class="hero-title-modern">
+          <span class="title-line" data-lang-en="Bold and rare," data-lang-fr="Audacieux et rare,">Bold and rare,</span>
+          <span class="title-line gold" data-lang-en="beyond compare" data-lang-fr="sans pareille">beyond compare</span>
+        </h1>
+        <p class="hero-subtitle" data-lang-en="Exceptional jewelry for those who dare." data-lang-fr="Bijoux exceptionnels pour ceux qui osent.">Exceptional jewelry for those who dare.</p>
+        <a href="products.html" class="btn-glass" data-lang-en="Discover" data-lang-fr="Découvrir">Discover</a>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-wheel"></div>
+      </div>
+    </section>
+
+    <section class="marquee-modern">
+      <div class="marquee-track">
+        <span>✦ HANDCRAFTED LUXURY</span>
+        <span>✦ RARE GEMSTONES</span>
+        <span>✦ CERTIFIED QUALITY</span>
+        <span>✦ TIMELESS DESIGN</span>
+        <span>✦ EXCLUSIVE</span>
+        <span>✦ BESPOKE JEWELRY</span>
+      </div>
+    </section>
+
+    <section class="instagram-widget">
+      <div class="instagram-header">
+        <i class="fa-brands fa-instagram"></i>
+        <span>@b.l_luxury</span>
+        <a href="https://www.instagram.com/b.l_luxury/" target="_blank" class="btn-follow">Follow</a>
+      </div>
+      <div class="instagram-grid" id="instagramGrid">
+        <div class="insta-placeholder"><i class="fa-brands fa-instagram"></i><span>Connect Instagram</span></div>
+      </div>
+    </section>
+
+    <section class="glass-cta">
+      <div class="glass-card">
+        <div class="glass-card-content">
+          <span class="glass-eyebrow" data-lang-en="OUR UNIVERSE" data-lang-fr="NOTRE UNIVERS">OUR UNIVERSE</span>
+          <h2 data-lang-en="Discover the art of rare beauty" data-lang-fr="L'art de la beauté rare">Discover the art of rare beauty</h2>
+          <p data-lang-en="Each piece is a testament to centuries of craftsmanship." data-lang-fr="Chaque pièce est un héritage.">Each piece is a testament to centuries of craftsmanship.</p>
+          <a href="products.html" class="btn-outline-glass" data-lang-en="Explore Collection" data-lang-fr="Explorer">Explore Collection</a>
+        </div>
+        <div class="glass-card-visual">
+          <div class="visual-stack">
+            <div class="visual-img" style="background-image:url('images/3p.webp')"></div>
+            <div class="visual-img" style="background-image:url('images/swan.webp')"></div>
+            <div class="visual-img" style="background-image:url('vancleefrouge/packvancleefrouge.webp')"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-modern">
+      <div class="stat-modern"><span class="stat-num" data-count="3">0</span><span class="stat-label" data-lang-en="Years of craft" data-lang-fr="Ans d'excellence">Years</span></div>
+      <div class="stat-modern"><span class="stat-num" data-count="520">0</span><span class="stat-label" data-lang-en="Happy clients" data-lang-fr="Clients heureux">Clients</span></div>
+      <div class="stat-modern"><span class="stat-num" data-count="45">0</span><span class="stat-label" data-lang-en="Unique designs" data-lang-fr="Designs uniques">Designs</span></div>
+      <div class="stat-modern"><span class="stat-num viewer-count" id="viewerCount">0</span><span class="stat-label" data-lang-en="Watching now" data-lang-fr="Regardent maintenant">Watching</span></div>
+    </section>
+
+    <section class="faq-modern">
+      <div class="faq-container">
+        <span class="faq-eyebrow" data-lang-en="QUESTIONS" data-lang-fr="QUESTIONS">QUESTIONS</span>
+        <h2 data-lang-en="Frequently Asked" data-lang-fr="Foire aux questions">Frequently Asked</h2>
+        <div class="faq-list-modern">
+          <div class="faq-item-modern"><button class="faq-q"><span data-lang-en="Delivery across Morocco?" data-lang-fr="Livraison au Maroc ?">Delivery across Morocco?</span><i class="fa-solid fa-plus"></i></button><div class="faq-a"><p data-lang-en="Yes, everywhere in Morocco." data-lang-fr="Oui, partout au Maroc.">Yes, everywhere.</p></div></div>
+          <div class="faq-item-modern"><button class="faq-q"><span data-lang-en="Delivery time?" data-lang-fr="Délais ?">Delivery time?</span><i class="fa-solid fa-plus"></i></button><div class="faq-a"><p data-lang-en="24-72 hours." data-lang-fr="24-72h.">24-72h.</p></div></div>
+          <div class="faq-item-modern"><button class="faq-q"><span data-lang-en="Free shipping?" data-lang-fr="Livraison gratuite ?">Free shipping?</span><i class="fa-solid fa-plus"></i></button><div class="faq-a"><p data-lang-en="Yes, free delivery." data-lang-fr="Oui, gratuite.">Free delivery.</p></div></div>
+          <div class="faq-item-modern"><button class="faq-q"><span data-lang-en="Cash on delivery?" data-lang-fr="Paiement à la livraison ?">Cash on delivery?</span><i class="fa-solid fa-plus"></i></button><div class="faq-a"><p data-lang-en="Yes, pay at reception." data-lang-fr="Oui, à la réception.">Yes, pay on delivery.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="scroll-top" id="scrollTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <footer class="footer-modern">
+    <div class="footer-grid">
+      <div><a href="index.html" class="footer-logo"><img src="images/logo_clean.webp" alt="BLluxury"></a><p class="footer-tagline">Bold and rare, beyond compare.</p><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a><a href="#"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+      <div><h4 data-lang-en="Navigate" data-lang-fr="Navigation">Navigate</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="cart.html">Cart</a></div>
+      <div><h4>Contact</h4><a href="tel:+212656420994"><i class="fa-solid fa-phone"></i> +212 656420994</a><a href="https://wa.me/212656420994"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 BLluxury — All rights reserved.</p></div>
+  </footer>
+
+  <audio id="ambientMusic" loop preload="none">
+    <source src="audio/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
