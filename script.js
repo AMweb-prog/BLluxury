@@ -117,7 +117,7 @@ const products = [
     ],
   },
   {
-    id: 'w11', name: 'GOLDEN EGDE', nameFr: 'GOLDEN EDGE',
+    id: 'w11', name: 'GOLDEN EDGE', nameFr: 'GOLDEN EDGE',
     sub: "POUR PLUS D'ELEGANCE ", subFr: "POUR PLUS D'ELEGANCE",
     price: 99, original: 130, promo: true,
     img: 'goldenedge/colgoldenedge.webp',
@@ -354,7 +354,7 @@ function initMusicToggle() {
     if (btn) btn.classList.add('playing');
   }
 
-  // 🖱️ Lancer la musique au premier clic sur la page
+  // 🖱️ Lancer la musique au premier clic sur la page (une seule fois)
   document.addEventListener('click', function startMusicOnClick() {
     if (!musicPlaying && audioElement) {
       audioElement.play().catch(() => {});
@@ -363,7 +363,7 @@ function initMusicToggle() {
       const btn = document.getElementById('musicToggle');
       if (btn) btn.classList.add('playing');
     }
-    // Ne pas enlever l'event, il servira pour les autres pages
+    document.removeEventListener('click', startMusicOnClick);
   });
 
   // 🎵 Bouton ON/OFF
@@ -623,6 +623,37 @@ function initProductModal() {
   const nextBtn = document.querySelector('.carousel-next');
   if (prevBtn) prevBtn.addEventListener('click', () => navigateCarousel(-1));
   if (nextBtn) nextBtn.addEventListener('click', () => navigateCarousel(1));
+
+  // ========== ZOOM FIXÉ : listeners isolés sur le container uniquement ==========
+  const zoomContainer = document.getElementById('zoomContainer');
+  const zoomLens = document.getElementById('zoomLens');
+  const mainImg = document.getElementById('modalMainImg');
+
+  if (zoomContainer && zoomLens && mainImg) {
+    zoomContainer.addEventListener('mousemove', (e) => {
+      const rect = zoomContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      zoomLens.style.left = x + 'px';
+      zoomLens.style.top = y + 'px';
+      zoomLens.style.opacity = '1';
+      const scaleX = mainImg.naturalWidth / rect.width;
+      const scaleY = mainImg.naturalHeight / rect.height;
+      const bgX = -(x * scaleX - 50);
+      const bgY = -(y * scaleY - 50);
+      mainImg.style.transformOrigin = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
+      mainImg.style.transform = 'scale(2)';
+    });
+
+    zoomContainer.addEventListener('mouseleave', () => {
+      zoomLens.style.opacity = '0';
+      mainImg.style.transform = 'scale(1)';
+      mainImg.style.transformOrigin = 'center center';
+    });
+
+    // Bloquer la propagation pour éviter que le curseur diamant interfère
+    zoomContainer.addEventListener('mousemove', (e) => e.stopPropagation(), true);
+  }
 }
 
 function closeModal() {
@@ -858,7 +889,10 @@ function getCart() {
 function saveCart(cart) {
   localStorage.setItem('blluxury_cart', JSON.stringify(cart));
   updateCartBadge();
-  initCartPage();
+  // Re-render cart page only if we're on the cart page
+  if (document.getElementById('cartItemsList')) {
+    initCartPage();
+  }
 }
 
 // ========== SON ADD TO CART ==========
