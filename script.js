@@ -629,7 +629,10 @@ function initProductModal() {
   const zoomLens = document.getElementById('zoomLens');
   const mainImg = document.getElementById('modalMainImg');
 
-  if (zoomContainer && zoomLens && mainImg) {
+  // Zoom souris uniquement sur desktop (pas de touch/mobile)
+  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  if (zoomContainer && zoomLens && mainImg && !isTouchDevice) {
     zoomContainer.addEventListener('mousemove', (e) => {
       const rect = zoomContainer.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -661,6 +664,8 @@ function closeModal() {
   if (modal) {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
+    // Restaurer le touch action normal
+    document.documentElement.style.touchAction = '';
   }
   stopAR();
   const video360 = document.getElementById('video360');
@@ -720,6 +725,8 @@ function openModal(product) {
   switchView('image');
   modal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
+  // Empêcher le zoom navigateur quand le modal est ouvert sur mobile
+  document.documentElement.style.touchAction = 'none';
 }
 
 function navigateCarousel(direction) {
